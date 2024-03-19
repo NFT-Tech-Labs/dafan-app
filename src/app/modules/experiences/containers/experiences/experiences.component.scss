@@ -1,0 +1,105 @@
+.club-experiences {
+    position: relative;
+
+    &__title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .experience {
+        position: relative;
+        display: flex;
+        padding-top: 30px;
+        --inner-padding-bottom: 30px;
+        --inner-padding-end: 0px;
+        --padding-start: 0px;
+
+        &--blocked::before {
+            content: 'Blocked by low level collectible';
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.7);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            font-weight: bold;
+            white-space: wrap;
+            text-align: center;
+        }
+
+        &__image {
+            width: 80px;
+            height: 68px;
+            border-radius: 10px;
+        }
+
+        &__label {
+            margin-right: 20px;
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+
+            .label {
+                font-weight: 500;
+                font-size: 16px;
+                white-space: normal;
+            }
+
+            .discount {
+                font-size: 32px;
+                font-weight: 200;
+                color: var(--color-turquoise-blue);
+            }
+        }
+
+        &__button {
+            width: 95px;
+            font-size: 16px;
+
+            &--blocked {
+                --background: var(--color-light-red);
+            }
+
+            ion-icon {
+                color: var(--color-dark-text);
+                margin-right: 10px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.suggest-box {
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    background: linear-gradient(180deg, var(--color-turquoise-blue) 0%, var(--color-turquoise-blue) 100%);
+    border-radius: 10px;
+    color: var(--color-dark-text);
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all ease-in 0.3s;
+
+    &--displayed {
+        opacity: 1;
+    }
+
+    ion-icon {
+        color: var(--color-dark-text);
+        margin-right: 8px;
+        font-size: 13px;
+    }
+}

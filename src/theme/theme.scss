@@ -1,0 +1,73 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import '@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '@ionic/angular/css/normalize.css';
+@import '@ionic/angular/css/structure.css';
+@import '@ionic/angular/css/typography.css';
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import '@ionic/angular/css/padding.css';
+@import '@ionic/angular/css/float-elements.css';
+@import '@ionic/angular/css/text-alignment.css';
+@import '@ionic/angular/css/text-transformation.css';
+@import '@ionic/angular/css/flex-utils.css';
+
+//----
+
+@import './typography/typography.scss';
+@import './colors.scss';
+
+ion-progress-bar {
+    border-radius: 25px;
+
+    .progress-buffer-bar {
+        border-radius: 25px;
+    }
+}
+
+ion-button.df-button {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 35px;
+    --border-radius: 6px;
+
+    &--primary {
+        --background-activated: var(--gradient-primary);
+        --background-activated-opacity: 0.5;
+        --background: var(--gradient-primary);
+        --color: var(--color-dark-text);
+
+        &:hover,
+        &:active {
+            --background: var(--gradient-primary);
+            filter: brightness(90%);
+        }
+    }
+
+    &--secondary {
+        --background-activated: var(--gradient-secondary);
+        --background-activated-opacity: 0.5;
+        --background: var(--gradient-secondary);
+        --color: var(--color-dark-text);
+
+        &:hover,
+        &:active {
+            --background: var(--gradient-secondary);
+            filter: brightness(90%);
+        }
+    }
+}

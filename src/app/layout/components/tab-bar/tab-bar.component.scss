@@ -1,0 +1,22 @@
+ion-tab-bar,
+ion-tab-button {
+    background: var(--color-dark-text);
+}
+
+ion-tab-bar {
+    font-weight: bold;
+    border-top: 1px solid var(--color-dark);
+
+    --color-selected: var(--color-turquoise-blue);
+}
+
+.tab-selected {
+    background: var(--gradient-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    ion-icon {
+        color: var(--color-turquoise-blue);
+        fill: var(--color-turquoise-blue);
+    }
+}

@@ -1,0 +1,47 @@
+.package-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .package {
+        display: flex;
+        justify-content: space-between;
+
+        &__value {
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 32px;
+            font-weight: 500;
+
+            ion-icon {
+                font-size: 38px;
+                margin-right: 5px;
+                margin-left: 0;
+            }
+        }
+
+        &__actions {
+            display: flex;
+            flex-direction: column;
+
+            ion-button {
+                width: 83px;
+            }
+
+            .save-price {
+                color: var(--color-light-grey);
+                text-align: center;
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+
+        &__value {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
+}

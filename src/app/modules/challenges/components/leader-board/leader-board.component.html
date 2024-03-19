@@ -1,0 +1,24 @@
+<section class="leader-board">
+    <h3 class="leader-board__title" *ngIf="type !== 'normal'">Leader board</h3>
+    <div class="leader-board__user-list">
+        <div class="user" *ngFor="let user of leaderBoard.leaderBoardUsers; let i = index">
+            <ion-icon
+                class="user__trophy"
+                [ngClass]="i === 0 ? 'user__trophy--first' : ''"
+                name="trophy-outline"
+            ></ion-icon>
+            <span class="user__ranking">{{ user.ranking }}</span>
+            <span class="user__alias">{{ user.alias }}</span>
+            <span class="user__points">{{ user.points }}</span>
+        </div>
+    </div>
+    <span
+        [routerLink]="'/challenges'"
+        [queryParams]="{ tab: 'leaderBoard' }"
+        *ngIf="type !== 'normal'"
+        class="leader-board__show-all"
+    >
+        Show all
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+    </span>
+</section>

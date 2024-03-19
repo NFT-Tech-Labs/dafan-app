@@ -1,0 +1,115 @@
+<ion-content class="challenges main-page" [scrollY]="true">
+    <ion-grid class="main-page__grid">
+        <section class="challenges__section">
+            <h2 class="challenges__title">Fan Points Challenges</h2>
+            <div class="challenges__tabs tabs">
+                <span
+                    class="tabs__tab"
+                    [ngClass]="{ 'tabs__tab--active': challengesTabSelected === 'digital' }"
+                    (click)="setTab('digital')"
+                >
+                    Digital
+                </span>
+                <span
+                    class="tabs__tab"
+                    [ngClass]="{ 'tabs__tab--active': challengesTabSelected === 'onField' }"
+                    (click)="setTab('onField')"
+                >
+                    On field
+                </span>
+                <span
+                    class="tabs__tab"
+                    [ngClass]="{ 'tabs__tab--active': challengesTabSelected === 'leaderBoard' }"
+                    (click)="setTab('leaderBoard')"
+                >
+                    Leader board
+                </span>
+            </div>
+            <div class="challenges__type">
+                <ng-container *ngIf="challengesTabSelected === 'digital'">
+                    <div class="challenge__card challenge__card--shadow quiz__challenge">
+                        <img class="quiz__preview" src="/assets/images/examples/club-player.jpeg" />
+                        <div class="quiz__content">
+                            <h3 class="title">#legendsQUIZ</h3>
+                            <ion-button class="df-button df-button--primary" (click)="navigateChallenge(5)">
+                                Play
+                            </ion-button>
+                        </div>
+                    </div>
+                    <div class="match">
+                        <h3 class="match__title pre-title">Match result prediction</h3>
+                        <div class="challenge__card challenge__card--shadow match__challenge">
+                            <div class="match__clubs">
+                                <img style="width: 72px" src="/assets/images/examples/club-logo.png" />
+                                VS
+                                <img
+                                    style="width: 58px; margin-bottom: -8px"
+                                    src="/assets/images/examples/juarez-logo.png"
+                                />
+                            </div>
+                            <div class="match__action">
+                                <ion-button class="df-button df-button--primary" (click)="navigateChallenge(6)">
+                                    Play
+                                </ion-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scorers">
+                        <h3 class="scorers__title pre-title">MVP Prediction</h3>
+                        <div class="challenge__card challenge__card--shadow scorers__challenge">
+                            <div class="scorers__players">
+                                <div class="player">
+                                    <img src="/assets/images/examples/club-player-1.jpeg" />
+                                    Roberto <br />Villares
+                                </div>
+                                <div class="player">
+                                    <img src="/assets/images/examples/club-player-2.jpeg" />
+                                    Diego <br />Villares
+                                </div>
+                                <div class="player">
+                                    <img src="/assets/images/examples/club-player-3.jpeg" />
+                                    Isi <br />Gomez
+                                </div>
+                            </div>
+                            <div class="scorers__action">
+                                <ion-button class="df-button df-button--primary" (click)="navigateChallenge(7)">
+                                    Play
+                                </ion-button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fantasy-league">
+                        <h3 class="fantasy-league__title pre-title">{{ fantasyLeague.name }}</h3>
+                        <div
+                            class="challenge__card challenge__card--shadow challenge__card--column fantasy-league__challenge"
+                        >
+                            <div class="fantasy-league__match" *ngFor="let match of fantasyLeague.matchList">
+                                <div class="match__club">
+                                    <img src="/assets/images/examples/{{ match.homeClub.image }}" />
+                                    <span class="name">{{ match.homeClub.name }}</span>
+                                </div>
+                                <span class="match__result"> {{ match.homeClubScore }}-{{ match.awayClubScore }} </span>
+                                <div class="match__club">
+                                    <img src="/assets/images/examples/{{ match.awayTeam.image }}" />
+                                    <span class="name">{{ match.awayTeam.name }}</span>
+                                </div>
+                            </div>
+                            <ion-button class="df-button df-button--primary" (click)="navigateToFantasyLeague()">
+                                Play
+                            </ion-button>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="challengesTabSelected === 'onField'">
+                    <df-physical-challenges
+                        (scanEmitter)="scanPhysicalChallenges($event)"
+                        [challenges]="onFieldChallenges"
+                    ></df-physical-challenges>
+                </ng-container>
+                <ng-container *ngIf="challengesTabSelected === 'leaderBoard'">
+                    <df-leader-board [leaderBoard]="leaderBoard" type="normal"></df-leader-board>
+                </ng-container>
+            </div>
+        </section>
+    </ion-grid>
+</ion-content>
