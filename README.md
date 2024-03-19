@@ -47,3 +47,7 @@ This will generate a `www` folder containing optimized assets for your app.
 ## Contributing
 
 We welcome contributions to this project. Before submitting a pull request, please ensure you have discussed the changes with the project maintainers.
+
+
+## DEVELOPER
+@jagalsan -> jagalerasanchez@gmail.com -> hidev.es
